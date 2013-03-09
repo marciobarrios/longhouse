@@ -1,0 +1,57 @@
+/* @license
+ * MyFonts Webfont Build ID 2441191, 2013-01-03T14:04:40-0500
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: Campland Letters by Magpie Paper Works
+ * URL: http://www.myfonts.com/fonts/magpiepaperworks/campland/letters/
+ *
+ * Webfont: Campland Ornaments by Magpie Paper Works
+ * URL: http://www.myfonts.com/fonts/magpiepaperworks/campland/ornaments/
+ *
+ *
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2441191
+ * Webfonts copyright: Copyright (c) 2011 by Magpie Paper Works LLC. All rights reserved.
+ *
+ * © 2013 Bitstream Inc
+*/
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/253fe7");
+
+@font-face {
+  font-family: 'CamplandLetters';
+  src: url('fonts/Campland/253FE7_0_0.eot');
+  src: url('fonts/Campland/253FE7_0_0.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Campland/253FE7_0_0.woff') format('woff'),
+       url('fonts/Campland/253FE7_0_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Campland';
+  src: url('fonts/Campland/253FE7_1_0.eot');
+  src: url('fonts/Campland/253FE7_1_0.eot?#iefix') format('embedded-opentype'),
+       url('fonts/Campland/253FE7_1_0.woff') format('woff'),
+       url('fonts/Campland/253FE7_1_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+// TrashHand
+@font-face {
+    font-family: 'trashhandregular';
+    src: url('fonts/TrashHand/trashhand-webfont.eot');
+    src: url('fonts/TrashHand/trashhand-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/TrashHand/trashhand-webfont.woff') format('woff'),
+         url('fonts/TrashHand/trashhand-webfont.ttf') format('truetype'),
+         url('fonts/TrashHand/trashhand-webfont.svg#trashhandregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

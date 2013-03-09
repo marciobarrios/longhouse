@@ -1,0 +1,49 @@
+/*=====================================================================
+  BUTTONS
+  =====================================================================*/
+
+// Core
+.button, .bt {
+  display: inline-block;
+  padding: 12px 30px;
+  //@include rem(font-size, $btFontSize, 18);
+  @include font-size($btFontSize);
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  border: 1px solid $btnBorder;
+  color: $btnColor;
+  border-radius: 99px;
+  background: $white;
+  @include prefix(transition, .25s .2s ease-in, $moz: false);
+  //box-shadow: 0 0 0 0 $btnColorHover;
+
+  // Hover state
+  &:hover {
+    text-decoration: none;
+    border-color: $btnColorHover;
+    box-shadow: 0 0 0 5px $btnColorHover;
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    @include tab-focus();
+  }
+
+  // Active state
+  &.active,
+  &:active {
+    outline: 0;
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    background-color: darken($white, 10%);
+    @include opacity(65);
+    box-shadow: none;
+  }
+
+}

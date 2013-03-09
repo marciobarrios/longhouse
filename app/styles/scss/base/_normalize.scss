@@ -1,0 +1,204 @@
+/*=====================================================================
+  NORMALIZE
+
+  Normalize styles across different browsers, based in:
+  - Nomalize.css: http://cl.ly/KXpL
+  - Inuitcss: http://cl.ly/KYEj
+  =====================================================================*/
+
+/*
+  HTML5 fixes for IE8/9
+  ===================================================================== */
+
+// Corrects `block` display not defined in IE 8/9
+article, aside, details, figcaption, figure,
+footer, header, hgroup, nav, section, summary {
+  display: block;
+}
+
+// Corrects `inline-block` display not defined in IE 8/9
+audio, canvas, video { display: inline-block; }
+
+// Prevents modern browsers from displaying `audio` without controls.
+// Remove excess height in iOS 5 devices.
+audio:not([controls]) { display: none; height: 0; }
+
+// Style for hidden attribute not present in IE8/9
+[hidden] { display: none; }
+
+
+/*
+  General
+  ===================================================================== */
+
+// Apply a natural box layout model to all elements, >IE8
+// more info: paulirish.com/2012/box-sizing-border-box-ftw
+//*, *:after, *:before { @include prefix(box-sizing, border-box); }
+
+body,
+h1,h2,h3,h4,h5,h6,
+p,blockquote,pre,
+dl,dd,ol,ul,
+form,fieldset,legend,input,textarea,
+table,th,td,caption,
+figure,
+hr{
+  margin: 0;
+  padding: 0;
+}
+
+// 1. Prevents iOS text size adjust after orientation change, without disabling user zoom
+html {
+  min-height: 100%;
+  font-size: 100%;
+  font-family: sans-serif;
+  @include prefix(text-size-adjust, 100%, $moz: false, $ms: true, $spec: false); // 1
+}
+
+// 1. Make images responsive by default
+// 2. Removes border inside <a>
+img {
+  max-width: 100%; // 1
+  height: auto; // 1
+  vertical-align: middle;
+  border: 0; // 2
+  -ms-interpolation-mode: bicubic;
+}
+
+// Prevent max-width from affecting Google Maps
+#mapCanvas label { width: auto; display: inline; }
+#mapCanvas img { max-width: none; }
+
+// Removes the default underline decoration on hover
+a { text-decoration: none; }
+
+* { outline: none; }
+
+// Addresses `outline` inconsistency between Chrome and other browsers
+// a:focus { outline: thin dotted; }
+
+// Improves readability when focused and also mouse hovered in all browsers
+// a:active, a:focus, a:hover { outline: 0; }
+
+
+/*
+  Typography
+  ===================================================================== */
+
+abbr, acronym { border-bottom: 1px dotted; cursor: help; }
+
+b, strong, mark { font-weight: bold; }
+
+code, pre { font-family: monospace, serif; font-size: 1em; }
+
+// Improves readability of pre-formatted text
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+small { font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup { top: -0.5em; }
+
+sub { bottom: -0.25em; }
+
+p, li {
+  @include prefix(hyphens, auto, $ms: true);
+  word-wrap: break-word;
+}
+
+/*
+  Forms
+  ===================================================================== */
+
+// Define consistent border, margin, and padding
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+// Corrects color not being inherited in IE 8/9
+legend { border: 0; }
+
+// 1. Corrects font family not being inherited in all browsers
+// 2. Corrects font size not being inherited in all browsers
+button, input, select, textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 2 */
+  //vertical-align: middle;
+}
+
+// Inner spacing ie IE6/7
+button, input { *overflow: visible; }
+
+// Inner padding and border oddities in FF3/4
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+// Removes whitespace around text fields, more info: http://cl.ly/KWea
+input, textarea { margin: 0; vertical-align: bottom; }
+
+// Removes default vertical scrollbar in IE 8/9
+textarea { overflow: auto; }
+
+// 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls
+// 2. Cursors on all buttons applied consistently
+// 3. Corrects inability to style clickable `input` types in iOS
+button,
+html input[type="button"], // 1
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer; // 2
+  -webkit-appearance: button; // 3
+}
+
+// Some cursor usability improvements in form elements
+label, input, textarea, button, select, option {
+  cursor: pointer;
+}
+
+.input[type=text]:active, .input[type=text]:focus,
+.input[type=password]:active, .input[type=password]:focus,
+.input[type=search]:active, .input[type=search]:focus,
+textarea:active, textarea:focus {
+  cursor: text;
+  outline: none;
+}
+
+// Default cursor for disabled elements
+button[disabled], input[disabled] { cursor: default; }
+
+// Addresses `appearance` set to `searchfield` in Safari 5 and Chrome
+input[type="search"] { -webkit-appearance: textfield; }
+
+// Removes inner padding and search cancel button in Safari 5 and Chrome on mac
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+// Removes inner padding and border in Firefox
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+[contenteditable] { outline: none; word-wrap: break-word; }
+
+
+/*
+  Tables
+  ===================================================================== */
+
+table { border-collapse: collapse; border-spacing: 0; width: 100%; }
+td { vertical-align: top }
+caption, th { text-align: left; }

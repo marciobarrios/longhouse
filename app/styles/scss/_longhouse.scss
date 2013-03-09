@@ -1,0 +1,89 @@
+/*=====================================================================
+  Longhouse specific styles
+  =====================================================================*/
+
+html {
+  font-family: $baseFontFamily;
+  font-size: #{$baseFontSize}px;
+  @include line-height($baseFontSize, $baseLineHeight);
+  color: $textColor;
+  background-color: $bodyBackground;
+}
+
+/* Links */
+a {
+  color: $linkColor;
+  text-decoration: none;
+
+  &:hover {
+    color: $linkColorHover;
+    text-decoration: none;
+  }
+}
+
+/* Common */
+.section-title {
+  font-family: $trashhand;
+  @include font-size(35);
+  text-transform: uppercase;
+}
+.section-title:after {
+  content: "";
+  display: block;
+  position: absolute;
+  margin-top: 5px;
+  width: 30px;
+  height: 1px;
+  background: #999;
+}
+
+.box-space { padding: 45px 0; }
+
+/* Titles */
+h1 {
+  font-family: $headingsFontFamily;
+  font-weight: normal;
+  @include font-size(87);
+}
+
+/* Header */
+header { color: $white; text-shadow: 0 1px rgba(0,0,0,.3); }
+  header h1 {
+    width: 710px;
+    padding-bottom: 60px;
+    margin-top: 30px;
+    line-height: 1;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+  }
+  header h2 { margin-top: 110px; line-height: 1.2; }
+
+/* Big top slider */
+.top-slider, .top-slider .item { height: 630px; }
+  .top-slider .item { background-image: url($topSlider1); background-size: cover; }
+  .top-slider .item + .item { background-image: url($topSlider2); }
+  .top-slider .item + .item + .item { background-image: url($topSlider3); }
+
+.looper-nav { margin-top: -44px; z-index: 2; }
+  .looper-nav a {
+    width: 7px;
+    height: 7px;
+    border: 3px solid $white;
+    box-shadow: 0 1px rgba(0,0,0,.4);
+    border-radius: 50%;
+  }
+  .looper-nav .active a {
+    background: $white;
+  }
+
+/* Main navigation */
+.main-nav, .main-nav > .container { background: #231f1a; height: 100px; }
+.main-nav .inb-list-offset { margin-left: -30px; }
+  .main-nav .inb-list-offset > li { margin-left: 30px; text-transform: uppercase;  }
+    .main-nav a { color: $linkOnDark; @include font-size($btFontSize); }
+
+.logo { margin-top: 30px; }
+
+/* About section in home */
+.about {
+  background: #f4f4ef;
+}

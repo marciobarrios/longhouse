@@ -1,0 +1,17 @@
+/*=====================================================================
+  Lists
+  =====================================================================*/
+
+// List of inline-block elements
+.inb-list { list-style: none; letter-spacing: -.25em; }
+.inb-list > li, .inb-list-item { display: inline-block; vertical-align: middle; letter-spacing: 0; }
+
+// variants w/ different margins
+.inb-list--xs      { @extend .inb-list;      margin-left:  -4px; }
+.inb-list--xs > li { @extend .inb-list-item; margin-left:   4px; }
+.inb-list--s       { @extend .inb-list;      margin-left:  -8px; }
+.inb-list--s > li  { @extend .inb-list-item; margin-left:   8px; }
+.inb-list--m       { @extend .inb-list;      margin-left: -12px; }
+.inb-list--m > li  { @extend .inb-list-item; margin-left:  12px; }
+
+

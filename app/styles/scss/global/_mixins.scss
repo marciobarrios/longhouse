@@ -1,0 +1,294 @@
+/*=====================================================================
+  MIXINS
+  A good advise: "mixins without arguments smell..."
+  =====================================================================*/
+
+// Vendor prefixes mixin, default -webkit, -moz- and standard definitions
+//
+// Ex:
+// @include prefix(box-sizing, border-box, $o: true);
+// =====================================================================
+@mixin prefix ($property, $value,
+                 $webkit: true,
+                    $moz: true,
+                     $ms: false,
+                      $o: false,
+                   $spec: true) {
+  @if $webkit { -webkit-#{$property}: $value; }
+  @if $moz    {    -moz-#{$property}: $value; }
+  @if $ms     {     -ms-#{$property}: $value; }
+  @if $o      {      -o-#{$property}: $value; }
+  @if $spec   {         #{$property}: $value; }
+}
+
+// Micro clearfix: nicolasgallagher.com/micro-clearfix-hack
+// =====================================================================
+@mixin clearfix {
+  //zoom: 1; // IE6/7
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+// Word break
+// =====================================================================
+@mixin wordBreak(){
+  -ms-word-wrap: break-all;
+      word-wrap: break-all;
+      word-wrap: break-word;
+}
+
+// Webkit-style focus
+// =====================================================================
+@mixin tab-focus() {
+  // Default
+  outline: thin dotted #333;
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Center-align a block level element
+// =====================================================================
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Opacity
+// =====================================================================
+@mixin opacity($opacity: .5) {
+  opacity: $opacity;
+  filter: alpha(opacity=$opacity*100);
+}
+
+// Enables using of CSS3 value `rem`
+// =====================================================================
+@mixin rem($property, $values, $main-font-size: 16px) {
+
+  // Empty list for all values in px
+  $px-values: ();
+  $rem-values: ();
+
+  // Iterate over entries
+  @each $value in $values {
+
+    // If the value is zero, return 0
+    @if $value == 0 or $value == auto {
+      $px-values: append($px-values, $value);
+      $rem-values: append($rem-values, $value);
+
+    // If the value is not zero, convert it from px to rem
+    } @else {
+      $px-values: append($px-values, ($value * $main-font-size) );
+      $rem-values: append($rem-values, #{$value}rem);
+    }
+  }
+
+  // Return the property and its list of converted values
+  #{$property}: #{$px-values};
+  #{$property}: #{$rem-values};
+}
+// @include x-rem(font-size, 1.3);
+
+// Flexbox
+// =====================================================================
+@mixin flexbox-display-flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin flexbox-flex($width) {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  width: $width; // Passing our width value here
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+@mixin flexbox-order($order) {
+  -webkit-box-ordinal-group: $order;
+  -moz-box-ordinal-group: $order;
+  -ms-flex-order: $order;
+  -webkit-order: $order;
+  order: $order;
+}
+/* Example
+  .page-wrap
+    .main-content
+    .main-nav
+    .main.sidebar
+
+.page-wrap { @include flexbox-display-flex;}
+.main-content { @include flexbox-order(2); width: 60%; }
+.main-nav { @include flexbox-order(1); @include flexbox-flex(20%); }
+.main-sidebar { @include flexbox-order(3); @include flexbox-flex(20%); }
+*/
+
+// Placeholder color
+// =====================================================================
+@mixin placeholder($color: $placeholderText) {
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+
+// CSS3 most used properties (or those nearly to change)
+// =====================================================================
+
+// Transitions, only -webkit prefix, and soon only the unprefixed version
+@mixin transition($value...) {
+  @include prefix(transition, $value, $moz:false);
+}
+
+// Grid System
+// =====================================================================
+// Centered container element
+@mixin container-fixed() {
+  margin-right: auto;
+  margin-left: auto;
+  @include clearfix();
+}
+
+// Table columns
+@mixin tableColumns($columnSpan: 1) {
+  float: none; // undo default grid column styles
+  width: (($gridColumnWidth) * $columnSpan) + ($gridGutterWidth * ($columnSpan - 1)) - 16; // 16 is total padding on left and right of table cells
+  margin-left: 0; // undo default grid column styles
+}
+
+// Make a Grid
+// Use .makeRow and .makeColumn to assign semantic layouts grid system behavior
+@mixin makeRow() {
+  margin-left: $gridGutterWidth * -1;
+  @include clearfix();
+}
+@mixin makeColumn($columns: 1, $offset: 0) {
+  float: left;
+  margin-left: ($gridColumnWidth * $offset) + ($gridGutterWidth * ($offset - 1)) + ($gridGutterWidth * 2);
+  width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
+}
+
+// The Grid
+@mixin core-offset($columns, $columnWidth: $gridColumnWidth, $gutterWidth: $gridGutterWidth) {
+  margin-left: ($columnWidth * $columns) + ($gutterWidth * ($columns + 1));
+}
+
+@mixin core-span($columns, $columnWidth: $gridColumnWidth, $gutterWidth: $gridGutterWidth) {
+  width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1));
+}
+
+@mixin grid-core($columnWidth: $gridColumnWidth, $gutterWidth: $gridGutterWidth) {
+  .row {
+    margin-left: $gutterWidth * -1;
+    @include clearfix();
+  }
+
+  [class*="span"] {
+    float: left;
+    margin-left: $gutterWidth;
+  }
+
+  // Set the container width, and override it for fixed navbars in media queries
+  .container,
+  .navbar-static-top .container,
+  .navbar-fixed-top .container,
+  .navbar-fixed-bottom .container {
+    @include core-span($gridColumns, $columnWidth, $gutterWidth);
+  }
+
+  // generate .spanX and .offsetX
+  $i: $gridColumns;
+  @while $i > 0 {
+    .span#{$i} { @include core-span($i, $columnWidth, $gutterWidth); }
+    $i: $i - 1;
+  }
+
+  $i: $gridColumns;
+  @while $i > 0 {
+    .offset#{$i} { @include core-offset($i, $columnWidth, $gutterWidth); }
+    $i: $i - 1;
+  }
+}
+
+@mixin fluid-offset($columns, $columnWidth: $fluidGridColumnWidth, $gutterWidth: $fluidGridGutterWidth) {
+  margin-left: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1)) + ($gutterWidth * 2);
+  *margin-left: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1)) - (.5 / $gridRowWidth * 100px * 1%) + ($gutterWidth * 2) - (.5 / $gridRowWidth * 100px * 1%);
+}
+
+@mixin fluid-offset-first-child($columns, $columnWidth: $fluidGridColumnWidth, $gutterWidth: $fluidGridGutterWidth) {
+  margin-left: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1)) + $gutterWidth;
+  *margin-left: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1)) - (.5 / $gridRowWidth * 100px * 1%) + $gutterWidth - (.5 / $gridRowWidth * 100px * 1%);
+}
+
+@mixin fluid-span($columns, $columnWidth: $fluidGridColumnWidth, $gutterWidth: $fluidGridGutterWidth) {
+  width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1));
+  *width: ($columnWidth * $columns) + ($gutterWidth * ($columns - 1)) - (.5 / $gridRowWidth * 100px * 1%);
+}
+
+@mixin grid-fluid($columnWidth: $fluidGridColumnWidth, $gutterWidth: $fluidGridGutterWidth) {
+  .row-fluid {
+    width: 100%;
+    @include clearfix();
+    [class*="span"] {
+      @include input-block-level();
+      float: left;
+      margin-left: $gutterWidth;
+      *margin-left: $gutterWidth - (.5 / $gridRowWidth * 100px * 1%);
+    }
+    [class*="span"]:first-child {
+      margin-left: 0;
+    }
+
+    // generate .spanX and .offsetX
+    $i: $gridColumns;
+    @while $i > 0 {
+      .span#{$i} {
+        @include fluid-span($i, $columnWidth, $gutterWidth);
+      }
+      .offset#{$i} {
+        @include fluid-offset($i, $columnWidth, $gutterWidth);
+      }
+      .offset#{$i}:first-child {
+        @include fluid-offset-first-child($i, $columnWidth, $gutterWidth);
+      }
+      $i: $i - 1;
+    }
+  }
+}
+
+@mixin input-span($columns, $columnWidth: $gridColumnWidth, $gutterWidth: $gridGutterWidth) {
+  width: (($columnWidth) * $columns) + ($gutterWidth * ($columns - 1)) - 14;
+}
+
+@mixin grid-input($columnWidth: $gridColumnWidth, $gutterWidth: $gridGutterWidth) {
+  input,
+  textarea,
+  .uneditable-input {
+    margin-left: 0; // override margin-left from core grid system
+  }
+
+  // Space grid-sized controls properly if multiple per line
+  .controls-row [class*="span"] + [class*="span"] {
+    margin-left: $gutterWidth;
+  }
+
+  // generate .spanX
+  $i: $gridColumns;
+  @while $i > 0 {
+    input.span#{$i},
+    textarea.span#{$i},
+    .uneditable-input.span#{$i} {
+      @include input-span($i, $columnWidth, $gutterWidth);
+    }
+    $i: $i - 1;
+  }
+}

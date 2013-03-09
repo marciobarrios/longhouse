@@ -1,0 +1,31 @@
+/*=====================================================================
+  Vertical rythm
+  =====================================================================*/
+
+// this should be here or in mixins?
+
+// From px to rem
+@mixin font-size($fontSize){
+  font-size: $fontSize + px;
+  font-size: ($fontSize/$baseFontSize) + rem;
+}
+
+// From rem to px
+// @mixin rem-font-size($sizeValue: 1){
+//   font-size: ($sizeValue * (16 * ($base-font-size / 100))) + px;
+//   font-size: $sizeValue + rem;
+// }
+
+//
+@mixin line-height($fontSize, $baseLineHeight) {
+  // Sets the line-height to a multiple of $base-line-height
+  // that's not smaller than $font-size
+   line-height: ceil($fontSize / $baseLineHeight) * ($baseLineHeight / $fontSize);
+}
+
+// probably here I can generate some vertical-gaps helpers
+
+@mixin rem-margin-bottom($sizeValue: 1){
+  margin-bottom: ($sizeValue * (16 * ($base-font-size / 100))) + px;
+  margin-bottom: $sizeValue + rem;
+}

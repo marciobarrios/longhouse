@@ -1,0 +1,48 @@
+/*=====================================================================
+  UTILS
+  =====================================================================*/
+
+/*
+  Micro clearfix: nicolasgallagher.com/micro-clearfix-hack
+ */
+.clearfix, .cf { @include clearfix; }
+
+/*
+  Helper to generate vertical center aligned blocks
+  1. In some circunstances needs height in px
+ */
+// .align-vertical { display: inline-block; }
+.v-align-container:before { // 1
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -.25em; /* adjust spacing for helvetica/arial */
+}
+
+.v-align { vertical-align: middle; }
+
+/*
+  Another helper to align vertical elements w/ display: table
+ */
+.table { display: table; }
+.cell  { display: table-cell; vertical-align: middle; }
+
+/*
+  Some general helpers
+ */
+.left  { float: left; }
+.right { float: right; }
+.hide  { display: none !important; }
+
+/*
+  hr separators
+ */
+ hr {
+  display: block;
+  margin: 0 20px;
+  height: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
+ }
+

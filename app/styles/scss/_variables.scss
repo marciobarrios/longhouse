@@ -1,0 +1,91 @@
+// PATHS
+$imgPath:           "../images";
+$logo:              "#{$imgPath}/logo.png";
+$topSlider1:        "#{$imgPath}/top-slider-1.jpg";
+$topSlider2:        "#{$imgPath}/top-slider-2.jpg";
+$topSlider3:        "#{$imgPath}/top-slider-1.jpg";
+$about1:            "#{$imgPath}/about-1.jpg";
+$about2:            "#{$imgPath}/about-2.jpg";
+$about3:            "#{$imgPath}/about-3.jpg";
+$about4:            "#{$imgPath}/about-4.jpg";
+
+
+// COLORS
+
+// Greys
+$black:                 #000 !default;
+$grayDarker:            #222 !default;
+$grayDark:              #333 !default;
+$gray:                  #555 !default;
+$grayLight:             #999 !default;
+$grayLighter:           #eee !default;
+$white:                 #fff !default;
+
+// Scaffolding
+$bodyBackground:        $white !default;
+$textColor:             #797770 !default;
+
+// links
+$linkColor:             #08c !default;
+$linkOnDark:            #d5d2cf !default;
+$linkColorHover:        darken($linkColor, 15%) !default;
+
+// Input placeholder text color
+$placeholderText:       $grayLight !default;
+
+// Buttons
+$btnBackground:                     $white !default;
+$btnBackgroundHighlight:            darken($white, 10%) !default;
+$btnBorder:                         #b5b4ae !default;
+//$btnColor:                          #a2a09b !default;
+$btnColor:                          #66635f !default;
+$btnColorHover:                     rgba(0,0,0,.2) !default;
+
+$btnPrimaryBackground:              $linkColor !default;
+$btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%) !default;
+
+// Forms
+$inputBackground:               $white !default;
+$inputBorder:                   #ccc !default;
+$inputBorderRadius:             3px !default;
+$inputDisabledBackground:       $grayLighter !default;
+$formActionsBackground:         #f5f5f5 !default;
+
+
+// TYPOGRAPHY
+$sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif !default;
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace !default;
+
+// Web fonts
+$bodoni:                "ltc-bodoni-175", $serifFontFamily;
+
+$brandon:               "brandon-grotesque", $sansFontFamily;
+
+$campland:              "Campland";
+$camplandLetters:       "CamplandLetters";
+
+$trashhand:             "trashhandregular", $sansFontFamily;
+
+// Base fonts in px
+$baseFontSize:          18 !default; // default text w/ Brandon Grotesque
+$baseFontFamily:        $brandon !default;
+$baseLineHeight:        24 !default;
+//$altFontFamily:         $serifFontFamily !default;
+$btFontSize:            14 !default;
+
+// Headings
+//$headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
+$headingsFontFamily:    $bodoni !default;
+$headingsFontWeight:    bold !default;    // instead of browser default, bold
+$headingsColor:         inherit !default; // empty to use BS default, $textColor
+
+// Z-INDEX
+
+
+// GRID
+// 12 cols * 65px + 11 gaps * 20px = 1000px wide
+$gridColumns:             12 !default;
+$gridColumnWidth:         65px !default;
+$gridGutterWidth:         20px !default;
+$gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1)) !default;

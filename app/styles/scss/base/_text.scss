@@ -1,0 +1,29 @@
+/*=====================================================================
+  TEXT-RELATED styles
+  =====================================================================*/
+
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+.text-center { text-align: center; }
+
+/*
+  Image replacement technique based on
+  nicolasgallagher.com/another-css-image-replacement-technique/
+ */
+.hide-text, .ir {
+  background: transparent;
+  border: 0;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+}
+
+/*
+  Truncate text
+ */
+.ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
