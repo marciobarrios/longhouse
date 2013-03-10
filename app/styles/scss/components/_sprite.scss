@@ -1,0 +1,17 @@
+/*=====================================================================
+  Sprite, icon definitions
+  =====================================================================*/
+
+  %i {
+  	display: inline-block;
+  	vertical-align: middle;
+  	@extend .hide-text;
+		background: url($sprite) no-repeat;
+		width: 24px;
+		height: 24px;
+  }
+
+  .i-calendar {
+  	@extend %i;
+  	background-position: 0 0;
+  }

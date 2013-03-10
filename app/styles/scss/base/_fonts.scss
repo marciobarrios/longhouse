@@ -55,3 +55,9 @@
     font-weight: normal;
     font-style: normal;
 }
+
+// Ready to use
+@mixin font-bodoni($font-weight) {
+  font-family: $bodoni;
+  font-weight: $font-weight;
+}

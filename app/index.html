@@ -19,11 +19,9 @@
 </head>
 <body>
 
-    <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-    <![endif]-->
 
-    <header id="top-slider" data-interval="0" data-looper="go" class="top-slider looper xfade">
+
+    <header id="top-slider" data-interval="5000" data-looper="go" class="top-slider looper xfade">
         <div class="looper-inner">
             <div class="item">
                 <hgroup class="container">
@@ -46,9 +44,9 @@
         </div>
         <nav>
             <ul class="looper-nav pr inb-list--s">
-                <li><a href="#top-slider" class="block ir" data-looper="to" data-args="1">&bull;</a></li>
-                <li><a href="#top-slider" class="block ir" data-looper="to" data-args="2">&bull;</a></li>
-                <li><a href="#top-slider" class="block ir" data-looper="to" data-args="3">&bull;</a></li>
+                <li><a href="#top-slider" class="block ir" data-looper="to" data-args="1">&bull;</a>
+                <li><a href="#top-slider" class="block ir" data-looper="to" data-args="2">&bull;</a>
+                <li><a href="#top-slider" class="block ir" data-looper="to" data-args="3">&bull;</a>
             </ul>
         </nav>
     </header>
@@ -56,20 +54,20 @@
 
     <div class="main-nav">
         <div class="container v-align-container">
-            <a href="#" class="logo right"><img src="images/logo.png" alt="Longhouse"></a>
+            <a href="#" class="logo right animated tada"><img src="images/logo.png" alt="Longhouse"></a>
 
             <nav class="inb">
                 <ul class="inb-list inb-list-offset">
-                    <li><a href="#">L. Surfschool</a></li>
-                    <li><a href="#">Longskate</a></li>
-                    <li><a href="#">Longbar &amp; Longcamp</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">L. Surfschool</a>
+                    <li><a href="#">Longskate</a>
+                    <li><a href="#">Longbar &amp; Longcamp</a>
+                    <li><a href="#">Contacto</a>
                 </ul>
             </nav>
         </div>
     </div>
 
-    <section class="box-space about">
+    <section class="pr box-space about">
 
         <div class="container">
             <div class="row">
@@ -77,9 +75,9 @@
                     <img src="images/about-1.jpg">
                 </figure>
                 <hgroup class="span6">
-                    <h3 class="section-title">¿Quiénes somos?</h3>
-                    <h2>Somos agua, libertad y sobre todo mucho <em>longboard</em>.</h2>
-                    <p>Música, entretenimiento, comercio, fiesta, pero sobre todo, mucho surf. Eso es lo que ha dejado el festival de Longboard de Salinas, que durante los últimos cuatro días ha llenado.</p>
+                    <h3 class="section-title vspace--xxl">¿Quiénes somos?</h3>
+                    <h2 class="title vspace--l">Somos agua, libertad y sobre todo mucho <em>longboard</em>.</h2>
+                    <p class="vspace--xl">Música, entretenimiento, comercio, fiesta, pero sobre todo, mucho surf. Eso es lo que ha dejado el festival de Longboard de Salinas, que durante los últimos cuatro días ha llenado.</p>
 
                     <a href="#" class="bt">Leer más</a>
                 </hgroup>
@@ -88,13 +86,57 @@
 
     </section>
 
+    <section class="box-space next-events">
+
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <ul class="right inb-list--m">
+                        <li>calendario rss
+                        <li><a href="#" class="bt"><i class="i-calendar"></i></a>
+                    </ul>
+                    <h3 class="section-title vspace--xxl">Próximos eventos</h3>
+
+                    <ul class="inb-list--eventshome">
+                        <li>
+                            <a href="#" class="block pr next-events-1">
+                                <p class="pa event-home-text">One basque and his winkle went to surf the desert</p>
+                                <div class="pa event-home-date text-center"><em class="block">14</em>Oct</div>
+                            </a>
+                        <li>
+                            <a href="#" class="block pr next-events-2">
+                                <p class="pa event-home-text">Dc’s ‘free for all’ – starring ando, craike & more</p>
+                                <div class="pa event-home-date text-center"><em class="block">1</em>Nov</div>
+                            </a>
+                        <li>
+                            <a href="#" class="block pr next-events-3">
+                                <p class="pa event-home-text">Multiple personality disorder – episode 3</p>
+                                <div class="pa event-home-date text-center"><em class="block">24</em>Jun</div>
+                            </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="box-space home-quote">
+        <div class="container">
+            <div class="row">
+                <div class="span12 text-center">
+                    <p class="title">Viejo es el mar y todavia se mueve, pero quien lo vuelve a ver, siempre lo ve como si fuese la primera vez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
+    <!-- <script>
         var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
         (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
         g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
         s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
+    </script> -->
 
     <!-- build:js scripts/main.js -->
     <script data-main="scripts/main" src="components/requirejs/require.js"></script>

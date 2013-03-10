@@ -3,8 +3,20 @@
   =====================================================================*/
 
 // List of inline-block elements
-.inb-list { list-style: none; letter-spacing: -.25em; }
-.inb-list > li, .inb-list-item { display: inline-block; vertical-align: middle; letter-spacing: 0; }
+// Note: use ONLY w/ ul/li and without </li> to avoid whitespace issues
+ .inb-list {
+ 	list-style: none;
+ 	// letter-spacing: -.31em;
+ 	// word-spacing: -.43em;
+ 	// text-rendering: optimizespeed;
+ }
+.inb-list > li, .inb-list-item {
+	display: inline-block;
+	vertical-align: middle;
+	// letter-spacing: normal;
+ //    word-spacing: normal;
+ //    text-rendering: auto;
+}
 
 // variants w/ different margins
 .inb-list--xs      { @extend .inb-list;      margin-left:  -4px; }
@@ -14,4 +26,7 @@
 .inb-list--m       { @extend .inb-list;      margin-left: -12px; }
 .inb-list--m > li  { @extend .inb-list-item; margin-left:  12px; }
 
+// specific lists
+.inb-list--eventshome { @extend .inb-list; margin-left: -1px; }
+	.inb-list--eventshome > li { @extend .inb-list-item; width: 332px; margin-left: 1px; }
 

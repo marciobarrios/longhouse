@@ -1,5 +1,6 @@
 // PATHS
 $imgPath:           "../images";
+$sprite:            "#{$imgPath}/sprite.png";
 $logo:              "#{$imgPath}/logo.png";
 $topSlider1:        "#{$imgPath}/top-slider-1.jpg";
 $topSlider2:        "#{$imgPath}/top-slider-2.jpg";
@@ -8,6 +9,9 @@ $about1:            "#{$imgPath}/about-1.jpg";
 $about2:            "#{$imgPath}/about-2.jpg";
 $about3:            "#{$imgPath}/about-3.jpg";
 $about4:            "#{$imgPath}/about-4.jpg";
+$eventHome1:        "#{$imgPath}/event-home-1.jpg";
+$eventHome2:        "#{$imgPath}/event-home-2.jpg";
+$eventHome3:        "#{$imgPath}/event-home-3.jpg";
 
 
 // COLORS
@@ -23,11 +27,13 @@ $white:                 #fff !default;
 
 // Scaffolding
 $bodyBackground:        $white !default;
-$textColor:             #797770 !default;
+$textColor:             lighten(#797770, 20%) !default;
+$titleColor:            #241f1a !default;
 
 // links
 $linkColor:             #08c !default;
-$linkOnDark:            #d5d2cf !default;
+$linkOnDark:            #66635f !default;
+$linkOnDarkHover:       #d5d2cf !default;
 $linkColorHover:        darken($linkColor, 15%) !default;
 
 // Input placeholder text color
@@ -37,9 +43,9 @@ $placeholderText:       $grayLight !default;
 $btnBackground:                     $white !default;
 $btnBackgroundHighlight:            darken($white, 10%) !default;
 $btnBorder:                         #b5b4ae !default;
-//$btnColor:                          #a2a09b !default;
-$btnColor:                          #66635f !default;
-$btnColorHover:                     rgba(0,0,0,.2) !default;
+$btnColor:                          #a2a09b !default;
+//$btnColor:                          #66635f !default;
+$btnColorHover:                     darken($btnBorder, 25%) !default;
 
 $btnPrimaryBackground:              $linkColor !default;
 $btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 20%) !default;
@@ -70,7 +76,7 @@ $trashhand:             "trashhandregular", $sansFontFamily;
 // Base fonts in px
 $baseFontSize:          18 !default; // default text w/ Brandon Grotesque
 $baseFontFamily:        $brandon !default;
-$baseLineHeight:        24 !default;
+$baseLineHeight:        26 !default;
 //$altFontFamily:         $serifFontFamily !default;
 $btFontSize:            14 !default;
 

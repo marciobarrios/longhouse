@@ -4,6 +4,34 @@
 
 // this should be here or in mixins?
 
+@mixin rem($property, $values, $main-font-size: 16px) {
+
+  // Empty list for all values in px
+  $px-values: ();
+  $rem-values: ();
+
+  $main-font-size: $baseFontSize;
+
+  // Iterate over entries
+  @each $value in $values {
+
+    // If the value is zero, return 0
+    @if $value == 0 or $value == auto {
+      $px-values: append($px-values, $value);
+      $rem-values: append($rem-values, $value);
+
+    // If the value is not zero, convert it from px to rem
+    } @else {
+      $px-values: append($px-values, $value + px);
+      $rem-values: append($rem-values, ($value / $main-font-size)rem);
+    }
+  }
+
+  // Return the property and its list of converted values
+  #{$property}: #{$px-values};
+  #{$property}: #{$rem-values};
+}
+
 // From px to rem
 @mixin font-size($fontSize){
   font-size: $fontSize + px;
@@ -23,9 +51,26 @@
    line-height: ceil($fontSize / $baseLineHeight) * ($baseLineHeight / $fontSize);
 }
 
-// probably here I can generate some vertical-gaps helpers
+// @mixin rem-margin-bottom($sizeValue: 1){
+//   margin-bottom: ($sizeValue * (16 * ($base-font-size / 100))) + px;
+//   margin-bottom: $sizeValue + rem;
+// }
 
-@mixin rem-margin-bottom($sizeValue: 1){
-  margin-bottom: ($sizeValue * (16 * ($base-font-size / 100))) + px;
-  margin-bottom: $sizeValue + rem;
+@mixin vspace($type) {
+	@if $type == 'l' {
+		@include rem(margin-bottom, 25)
+	}
+	@if $type == 'xl' {
+		@include rem(margin-bottom, 35)
+	}
+	@if $type == 'xxl' {
+		@include rem(margin-bottom, 45)
+	}
 }
+
+// some vertical-gaps helpers
+.box-space { padding: 45px 0; }
+
+.vspace--l { @include vspace(l) }
+.vspace--xl { @include vspace(xl) }
+.vspace--xxl { @include vspace(xxl) }
